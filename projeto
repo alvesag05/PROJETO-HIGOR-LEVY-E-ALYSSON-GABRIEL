@@ -1,0 +1,100 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+string nome, email, senha;
+int idade, opcao;
+
+void Cadastro(){
+
+    cout << "-> Seja bem vindo ao Cadastro!" << endl;
+    cout << "-> Digite seu nome: ";
+    cin.ignore();
+    getline(cin, nome);
+    cout << endl;
+
+    cout << "-> Olá " << nome << ", digite sua idade: ";
+    cin >> idade;
+
+    if(idade < 13){
+        cout << "-> Você não tem idade suficiente para se cadastrar" << endl;
+        return;
+    }
+    else{
+        cout << endl;
+        cout << "-> Digite seu email: ";
+        cin >> email;
+
+        if(email.find('@') == string::npos){
+            cout << "-> Email inválido! Certifique-se de incluir o caractere '@'." << endl;
+            return; 
+        }
+        }
+        
+        cout << endl;
+        cout << "-> Agora, digite a senha para cadastro (mínimo de 8 dígitos): ";
+        cin >> senha;
+
+        if(senha.length() < 8){
+            cout << "-> Número de dígitos insuficiente\n" << endl << endl;
+            return;
+        }
+
+        cout << endl;
+
+        cout << "->Cadastro realizado com sucesso!<-" << endl;
+        cout << endl << endl;
+    }
+
+
+void dados(){
+
+    cout << "Os seus dados são: " << endl;
+    cout << "-> Nome: " << nome << endl;
+    cout << "-> Idade: " << idade << endl;
+    cout << "-> Email: " << email << endl;
+    cout << endl;
+} 
+
+void Menu(){
+
+    while(true){
+    cout << "====MENU====" << endl;
+    cout << "1 - Cadastrar" << endl;
+    cout << "2 - Exibir lista de dados" << endl;
+    cout << "3 - Sair" << endl;
+    cout << "\n->Seja bem vindo ao MENU, selecione um dos digitos abaixo: " << endl;
+    cin >> opcao;
+    
+    if(opcao == 1){
+        
+        cout << endl;
+        
+        Cadastro();
+    }
+    else if(opcao == 2){
+
+        cout << endl;
+        
+        dados();
+}
+    else if(opcao == 3){
+
+        cout << endl;
+        
+        cout << "Saindo..." << endl;
+        break;
+    }
+        else{
+            cout << "\nOpção inválida, por favor tente novamente." << endl << endl;
+        }
+    }
+}
+
+int main(){
+    
+    Menu();
+    
+    return 0;
+}
